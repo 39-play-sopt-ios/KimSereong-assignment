@@ -47,7 +47,7 @@ struct PasswordView: View {
                         Text(form.nickname.isEmpty ? "닉네임 설정" : form.nickname)
                             .font(.Regular(12))
                             .underline(form.nickname.isEmpty)
-                            .foregroundStyle(form.nickname.isEmpty ? Color.gray300 : Color("gray100"))
+                            .foregroundStyle(form.nickname.isEmpty ? Color.gray300 : Color("gray200"))
                             .frame(maxWidth: .infinity, minHeight: 44)
                     }
                     .buttonStyle(.plain)
