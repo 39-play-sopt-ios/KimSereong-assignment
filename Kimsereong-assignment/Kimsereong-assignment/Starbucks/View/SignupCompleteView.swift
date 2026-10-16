@@ -15,7 +15,7 @@ struct SignupCompleteView: View {
         VStack(spacing: 0) {
             ScrollView {
                 VStack(spacing: 0) {
-                    Image("Group 1537")
+                    Image("starbucks_logo")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 262, height: 201)
