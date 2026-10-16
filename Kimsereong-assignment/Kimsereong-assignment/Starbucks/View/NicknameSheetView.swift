@@ -16,10 +16,6 @@ struct NicknameSheetView: View {
         self.onSave = onSave
     }
 
-    private var trimmedNickname: String {
-        draftNickname.trimmingCharacters(in: .whitespacesAndNewlines)
-    }
-
     var body: some View {
         VStack(spacing: 0) {
             Text("닉네임을 입력해주세요")
@@ -37,10 +33,10 @@ struct NicknameSheetView: View {
 
             CommonButton(
                 title: "완료",
-                isEnabled: !trimmedNickname.isEmpty,
+                isEnabled: !draftNickname.isEmpty,
                 isWhite: true
             ) {
-                onSave(trimmedNickname)
+                onSave(draftNickname)
             }
             .padding(.horizontal, 22)
             .padding(.bottom, 13)

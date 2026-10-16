@@ -110,6 +110,5 @@ struct LoginTextFieldView: View {
                 .frame(width: 24, height: 24)
         }
         .buttonStyle(.plain)
-//        .accessibilityLabel(isPasswordVisible ? "비밀번호 숨기기" : "비밀번호 보기")
     }
 }

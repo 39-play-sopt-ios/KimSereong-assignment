@@ -9,19 +9,15 @@ import SwiftUI
 
 struct LoginView: View {
     @State private var form: SignupForm
-    @State private var path: [Screen] = []
-
-    private enum Screen: Hashable {
-        case password
-        case complete
-    }
+    @State private var showsPassword = false
+    @State private var showsCompletion = false
 
     init(form: SignupForm = SignupForm()) {
         _form = State(initialValue: form)
     }
 
     var body: some View {
-        NavigationStack(path: $path) {
+        NavigationStack {
             VStack(alignment: .leading, spacing: 0) {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
@@ -46,7 +42,7 @@ struct LoginView: View {
                 }
 
                 CommonButton(title: "다음", isEnabled: form.isEmailValid) {
-                    path.append(.password)
+                    showsPassword = true
                 }
                 .padding(.horizontal, 22)
                 .padding(.bottom, 13)
@@ -54,15 +50,14 @@ struct LoginView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color("background_white").ignoresSafeArea())
             .toolbar(.hidden, for: .navigationBar)
-            .navigationDestination(for: Screen.self) { screen in
-                switch screen {
-                case .password:
-                    PasswordView(form: $form) {
-                        path.append(.complete)
-                    }
-                case .complete:
+            .navigationDestination(isPresented: $showsPassword) {
+                PasswordView(form: $form) {
+                    showsCompletion = true
+                }
+                .navigationDestination(isPresented: $showsCompletion) {
                     SignupCompleteView(nickname: form.nickname) {
-                        path.removeAll()
+                        showsCompletion = false
+                        showsPassword = false
                         form = SignupForm()
                     }
                 }
