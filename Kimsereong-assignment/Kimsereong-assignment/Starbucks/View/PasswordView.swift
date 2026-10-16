@@ -9,8 +9,8 @@ import SwiftUI
 
 struct PasswordView: View {
     @Binding var form: SignupForm
-    let onSignup: () -> Void
     @State private var showsNickname = false
+    let onSignup: () -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -69,10 +69,7 @@ struct PasswordView: View {
         .background(Color("background_white").ignoresSafeArea())
         .toolbar(.hidden, for: .navigationBar)
         .sheet(isPresented: $showsNickname) {
-            NicknameSheetView(nickname: form.nickname) { nickname in
-                form.nickname = nickname
-                showsNickname = false
-            }
+            NicknameSheetView(nickname: $form.nickname, isPresented: $showsNickname)
             .presentationDetents([.fraction(0.5)])
             .presentationDragIndicator(.hidden)
             .presentationBackground(Color("darkgreen"))

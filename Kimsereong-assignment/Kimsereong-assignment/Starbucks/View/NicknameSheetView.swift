@@ -8,13 +8,8 @@
 import SwiftUI
 
 struct NicknameSheetView: View {
-    @State private var draftNickname: String
-    let onSave: (String) -> Void
-
-    init(nickname: String, onSave: @escaping (String) -> Void) {
-        _draftNickname = State(initialValue: nickname)
-        self.onSave = onSave
-    }
+    @Binding var nickname: String
+    @Binding var isPresented: Bool
 
     var body: some View {
         VStack(spacing: 0) {
@@ -25,7 +20,7 @@ struct NicknameSheetView: View {
                 .padding(.horizontal, 22)
                 .padding(.top, 42)
 
-            LoginTextFieldView(text: $draftNickname, type: .nickname)
+            LoginTextFieldView(text: $nickname, type: .nickname)
                 .padding(.horizontal, 31)
                 .padding(.top, 18)
 
@@ -33,10 +28,10 @@ struct NicknameSheetView: View {
 
             CommonButton(
                 title: "완료",
-                isEnabled: !draftNickname.isEmpty,
+                isEnabled: !nickname.isEmpty,
                 isWhite: true
             ) {
-                onSave(draftNickname)
+                isPresented = false
             }
             .padding(.horizontal, 22)
             .padding(.bottom, 13)
