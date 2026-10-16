@@ -10,9 +10,22 @@
 		3B04B2B9307B6EA200A4C0D5 /* Kimsereong-assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kimsereong-assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3B04B2D6307CDCF800A4C0D5 /* Exceptions for "Kimsereong-assignment" folder in "Kimsereong-assignment" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 3B04B2B8307B6EA200A4C0D5 /* Kimsereong-assignment */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		3B04B2BB307B6EA200A4C0D5 /* Kimsereong-assignment */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				3B04B2D6307CDCF800A4C0D5 /* Exceptions for "Kimsereong-assignment" folder in "Kimsereong-assignment" target */,
+			);
 			path = "Kimsereong-assignment";
 			sourceTree = "<group>";
 		};
@@ -246,6 +259,8 @@
 				DEVELOPMENT_TEAM = U5HVN36M83;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Kimsereong-assignment/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -278,6 +293,8 @@
 				DEVELOPMENT_TEAM = U5HVN36M83;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Kimsereong-assignment/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
