@@ -11,7 +11,7 @@ import SwiftUI
 struct Kimsereong_assignmentApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView()
         }
     }
 }
