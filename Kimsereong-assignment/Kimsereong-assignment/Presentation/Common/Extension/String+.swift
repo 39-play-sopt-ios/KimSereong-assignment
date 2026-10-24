@@ -1,5 +1,5 @@
 //
-//  String+Extension.swift
+//  String+.swift
 //  Kimsereong-assignment
 //
 //  Created by 김세령 on 10/12/26.
