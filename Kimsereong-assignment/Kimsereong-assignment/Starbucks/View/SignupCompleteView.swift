@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignupCompleteView: View {
-    let nickname: String
+    let form: SignupForm
     let onMain: () -> Void
 
     var body: some View {
@@ -22,7 +22,7 @@ struct SignupCompleteView: View {
                         .padding(.top, 65)
                         .accessibilityLabel("스타벅스")
 
-                    Text("\(nickname.isEmpty ? "회원" : nickname)님\n가입을 환영합니다!")
+                    Text("\(form.nickname.isEmpty ? "회원" : form.nickname)님\n가입을 환영합니다!")
                         .font(.SemiBold(23))
                         .foregroundStyle(.white)
                         .multilineTextAlignment(.center)

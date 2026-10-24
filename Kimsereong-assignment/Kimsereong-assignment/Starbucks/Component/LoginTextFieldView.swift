@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct LoginTextFieldView: View {
+    let type: LoginTextFieldType
     @Binding var text: String
     @State private var isPasswordVisible: Bool = false
-    let type: LoginTextFieldType
 
     enum LoginTextFieldType {
         case email

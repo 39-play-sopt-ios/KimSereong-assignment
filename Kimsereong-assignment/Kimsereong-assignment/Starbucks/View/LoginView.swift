@@ -33,7 +33,7 @@ struct LoginView: View {
                         .foregroundStyle(Color("loginGuide"))
                         .padding(.top, 12)
 
-                        LoginTextFieldView(text: $form.email, type: .email)
+                        LoginTextFieldView(type: .email, text: $form.email)
                             .padding(.top, 28)
                     }
                     .padding(.horizontal, 31)
@@ -55,7 +55,7 @@ struct LoginView: View {
                     showsCompletion = true
                 }
                 .navigationDestination(isPresented: $showsCompletion) {
-                    SignupCompleteView(nickname: form.nickname) {
+                    SignupCompleteView(form: form) {
                         showsCompletion = false
                         showsPassword = false
                         form = SignupForm()

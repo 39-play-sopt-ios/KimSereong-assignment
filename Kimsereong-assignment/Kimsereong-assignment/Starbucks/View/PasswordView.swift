@@ -25,11 +25,11 @@ struct PasswordView: View {
                         .foregroundStyle(Color.gray300)
                         .padding(.top, 12)
 
-                    LoginTextFieldView(text: $form.password, type: .password)
+                    LoginTextFieldView(type: .password, text: $form.password)
                         .padding(.top, 44)
 
                     HStack(spacing: 5) {
-                        Image(form.isPasswordValid ? "enable-on" : "enable-offsvg")
+                        Image(form.isPasswordValid ? "enable-on" : "enable-off")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 13, height: 13)
@@ -69,9 +69,9 @@ struct PasswordView: View {
         .background(Color("background_white").ignoresSafeArea())
         .toolbar(.hidden, for: .navigationBar)
         .sheet(isPresented: $showsNickname) {
-            NicknameSheetView(nickname: $form.nickname, isPresented: $showsNickname)
+            NicknameSheetView(form: $form, isPresented: $showsNickname)
             .presentationDetents([.fraction(0.5)])
-            .presentationDragIndicator(.hidden)
+            .presentationDragIndicator(.visible)
             .presentationBackground(Color("darkgreen"))
             .presentationCornerRadius(12)
         }

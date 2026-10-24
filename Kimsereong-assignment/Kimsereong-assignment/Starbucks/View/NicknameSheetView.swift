@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NicknameSheetView: View {
-    @Binding var nickname: String
+    @Binding var form: SignupForm
     @Binding var isPresented: Bool
 
     var body: some View {
@@ -20,7 +20,7 @@ struct NicknameSheetView: View {
                 .padding(.horizontal, 22)
                 .padding(.top, 42)
 
-            LoginTextFieldView(text: $nickname, type: .nickname)
+            LoginTextFieldView(type: .nickname, text: $form.nickname)
                 .padding(.horizontal, 31)
                 .padding(.top, 18)
 
@@ -28,7 +28,7 @@ struct NicknameSheetView: View {
 
             CommonButton(
                 title: "완료",
-                isEnabled: !nickname.isEmpty,
+                isEnabled: !form.nickname.isEmpty,
                 isWhite: true
             ) {
                 isPresented = false
@@ -38,11 +38,5 @@ struct NicknameSheetView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("darkgreen"))
-        .overlay(alignment: .top) {
-            Capsule()
-                .fill(.gray300)
-                .frame(width: 35, height: 5)
-                .padding(.top, 5)
-        }
     }
 }
