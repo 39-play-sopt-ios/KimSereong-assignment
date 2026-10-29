@@ -26,12 +26,11 @@ struct OrderView: View {
             .frame(height: 46)
     
             MenuTabBar(selectedTab: $selectedTab)
-            
-            DetailMenuTabBar()
 
             switch selectedTab {
                         case .all:
-                            AllMenuView()
+                            DetailMenuTabBar()
+                            MainMenuList(items: MenuCategoryModel.menus)
                         case .my:
                             MyMenuView()
                         }
