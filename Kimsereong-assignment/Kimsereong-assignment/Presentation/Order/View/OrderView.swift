@@ -15,15 +15,7 @@ struct OrderView: View {
         VStack(alignment: .center, spacing: 0) {
             TopNavigationBar(type: .searchOnly)
             
-            HStack(alignment: .center, spacing: 0) {
-                Text("Order")
-                    .font(.SemiBold(28))
-                    .padding(.leading, 18)
-                
-                Spacer()
-            }
-            .scaledToFill()
-            .frame(height: 46)
+            PageTitle(title: "Order")
     
             MenuTabBar(selectedTab: $selectedTab)
 
