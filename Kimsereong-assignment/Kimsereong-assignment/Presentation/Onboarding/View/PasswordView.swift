@@ -58,7 +58,7 @@ struct PasswordView: View {
                 .padding(.bottom, 24)
             }
 
-            CommonButton(title: "가입하기", isEnabled: form.isPasswordValid && !showsNickname) {
+            CTAButton(title: "가입하기", isEnabled: form.isPasswordValid && !showsNickname) {
                 onSignup()
             }
             .padding(.horizontal, 22)

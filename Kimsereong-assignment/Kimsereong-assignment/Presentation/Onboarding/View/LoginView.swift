@@ -41,7 +41,7 @@ struct LoginView: View {
                     .padding(.bottom, 24)
                 }
 
-                CommonButton(title: "다음", isEnabled: form.isEmailValid) {
+                CTAButton(title: "다음", isEnabled: form.isEmailValid) {
                     showsPassword = true
                 }
                 .padding(.horizontal, 22)

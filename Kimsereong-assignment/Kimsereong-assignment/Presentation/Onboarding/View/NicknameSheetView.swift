@@ -26,7 +26,7 @@ struct NicknameSheetView: View {
 
             Spacer(minLength: 16)
 
-            CommonButton(
+            CTAButton(
                 title: "완료",
                 isEnabled: !form.nickname.isEmpty,
                 isWhite: true

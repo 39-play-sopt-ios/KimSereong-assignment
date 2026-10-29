@@ -32,7 +32,7 @@ struct SignupCompleteView: View {
                 .frame(maxWidth: .infinity)
             }
 
-            CommonButton(title: "메인으로", isWhite: true) {
+            CTAButton(title: "메인으로", isWhite: true) {
                 onMain()
             }
             .padding(.horizontal, 22)

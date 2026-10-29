@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CommonButton: View {
+struct CTAButton: View {
     let title: String
     var isEnabled: Bool = true
     var isWhite: Bool = false
