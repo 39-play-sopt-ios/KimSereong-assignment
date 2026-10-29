@@ -67,7 +67,13 @@ struct MainTabBarView: View {
                 .tag(MainTab.other)
         }
         .safeAreaInset(edge: .bottom, spacing: 0) {
-            CustomTabBar(selectedTab: $selectedTab)
+            VStack(spacing: 0) {
+                if selectedTab == .order {
+                    LocationTabBar()
+                }
+
+                CustomTabBar(selectedTab: $selectedTab)
+            }
         }
     }
 }
