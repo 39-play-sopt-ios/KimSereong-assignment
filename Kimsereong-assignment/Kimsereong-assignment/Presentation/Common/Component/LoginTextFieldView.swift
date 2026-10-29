@@ -24,7 +24,7 @@ struct LoginTextFieldView: View {
                 .fill(.white)
                 .strokeBorder(borderColor, lineWidth: 1)
 
-            HStack(spacing: 4) {
+            HStack(alignment: .center, spacing: 4) {
                 Group {
                     if type == .password && !isPasswordVisible {
                         SecureField(placeholder, text: $text, prompt: prompt)
