@@ -10,7 +10,7 @@ import SwiftUI
 struct FavoriteButton: View {
     let isFavorite: Bool
     let onTap: () -> Void
-
+    
     var body: some View {
         Button(action: onTap) {
             Image(isFavorite ? .heartFill : .heartEmpty)
@@ -19,4 +19,5 @@ struct FavoriteButton: View {
                 .frame(width: 25, height: 22)
         }
         .buttonStyle(.plain)
+    }
 }
