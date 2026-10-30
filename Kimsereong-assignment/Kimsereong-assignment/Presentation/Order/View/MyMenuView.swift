@@ -61,4 +61,3 @@ struct MyMenuView: View {
         .background(.white)
     }
 }
-

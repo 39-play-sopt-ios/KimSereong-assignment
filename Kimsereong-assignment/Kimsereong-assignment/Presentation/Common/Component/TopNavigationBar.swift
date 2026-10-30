@@ -15,7 +15,7 @@ struct TopNavigationBar: View {
         case basic
         case searchOnly
     }
-            
+    
     var body: some View {
         HStack(alignment: .center, spacing: 0) {
             if type == .basic {

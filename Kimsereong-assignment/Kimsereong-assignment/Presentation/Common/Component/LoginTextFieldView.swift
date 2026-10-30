@@ -11,19 +11,19 @@ struct LoginTextFieldView: View {
     let type: LoginTextFieldType
     @Binding var text: String
     @State private var isPasswordVisible: Bool = false
-
+    
     enum LoginTextFieldType {
         case email
         case password
         case nickname
     }
-
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
                 .fill(.white)
                 .strokeBorder(borderColor, lineWidth: 1)
-
+            
             HStack(alignment: .center, spacing: 4) {
                 Group {
                     if type == .password && !isPasswordVisible {
@@ -39,10 +39,10 @@ struct LoginTextFieldView: View {
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
                 .accessibilityLabel(type == .email ? "이메일" : placeholder)
-
+                
                 if !text.isEmpty && type != .nickname {
                     clearButton
-
+                    
                     switch type {
                     case .email:
                         Image(text.isValidEmail ? "check-on" : "check-off")
@@ -60,7 +60,7 @@ struct LoginTextFieldView: View {
         }
         .frame(height: 47)
     }
-
+    
     private var placeholder: String {
         switch type {
         case .email:
@@ -71,11 +71,11 @@ struct LoginTextFieldView: View {
             return "닉네임 입력"
         }
     }
-
+    
     private var prompt: Text {
         Text(placeholder).foregroundStyle(Color("gray250"))
     }
-
+    
     private var borderColor: Color {
         if text.isEmpty { return .white }
         switch type {
@@ -87,7 +87,7 @@ struct LoginTextFieldView: View {
             return .white
         }
     }
-
+    
     private var clearButton: some View {
         Button {
             text = ""
@@ -99,7 +99,7 @@ struct LoginTextFieldView: View {
         }
         .buttonStyle(.plain)
     }
-
+    
     private var visibilityButton: some View {
         Button {
             isPasswordVisible.toggle()

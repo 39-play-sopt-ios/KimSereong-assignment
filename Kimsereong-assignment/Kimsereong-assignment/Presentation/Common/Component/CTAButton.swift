@@ -38,5 +38,4 @@ struct CTAButton: View {
         if isWhite { return .white }
         return Color("starbucks_green")
     }
-
 }

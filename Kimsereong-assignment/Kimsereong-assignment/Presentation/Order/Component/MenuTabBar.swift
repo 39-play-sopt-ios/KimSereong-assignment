@@ -38,7 +38,7 @@ struct MenuTabBar: View {
                             )
                             .frame(maxWidth: .infinity)
                             .frame(width: 115, height: 46)
-
+                        
                             .overlay(alignment: .bottom) {
                                 Rectangle()
                                     .fill(
