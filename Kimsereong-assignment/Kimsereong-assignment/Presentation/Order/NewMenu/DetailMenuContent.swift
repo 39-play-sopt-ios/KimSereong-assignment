@@ -2,15 +2,15 @@ import SwiftUI
 
 struct DetailMenuContent: View {
     let item: NewMenuItemModel
-
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 productImage
-
+                
                 VStack(alignment: .leading, spacing: 0) {
                     productHeading
-
+                    
                     if item.id == "sweet-potato-latte-iced" {
                         productDescription
                         icedOnlyLabel
@@ -24,7 +24,7 @@ struct DetailMenuContent: View {
             .background(.white)
         }
     }
-
+    
     private var productImage: some View {
         Image(item.image)
             .resizable()
@@ -32,7 +32,7 @@ struct DetailMenuContent: View {
             .frame(maxWidth: .infinity)
             .accessibilityLabel(item.name)
     }
-
+    
     private var productHeading: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(alignment: .center, spacing: 9) {
@@ -41,14 +41,14 @@ struct DetailMenuContent: View {
                     .foregroundStyle(.darkgary)
                     .fixedSize(horizontal: false, vertical: true)
                     .layoutPriority(1)
-
+                
                 Text("NEW")
                     .font(.SemiBold(14))
                     .foregroundStyle(.maingreen)
                     .fixedSize()
             }
             .padding(.vertical, 7)
-
+            
             Text(item.englishName)
                 .font(.Regular(12))
                 .foregroundStyle(.gray280)
@@ -56,7 +56,7 @@ struct DetailMenuContent: View {
                 .frame(minHeight: 18, alignment: .leading)
         }
     }
-
+    
     private var productDescription: some View {
         VStack(alignment: .leading, spacing: 28) {
             Text("""
@@ -64,18 +64,18 @@ struct DetailMenuContent: View {
                 포슬한 카스텔라, 쫀득한 펄이 어우러져 다채로운 식감을 즐길
                 수 있는 음료.
                 """)
-                .font(.Regular(14))
-                .foregroundStyle(.darkgary)
-                .lineSpacing(1)
-                .fixedSize(horizontal: false, vertical: true)
-
+            .font(.Regular(14))
+            .foregroundStyle(.darkgary)
+            .lineSpacing(1)
+            .fixedSize(horizontal: false, vertical: true)
+            
             Text(item.price)
                 .font(.SemiBold(23))
                 .foregroundStyle(.black)
         }
         .padding(.vertical, 14)
     }
-
+    
     private var icedOnlyLabel: some View {
         Text("ICED ONLY")
             .font(.SemiBold(12))
@@ -91,19 +91,19 @@ struct DetailMenuContent: View {
             .padding(.top, 17)
             .padding(.horizontal, 4)
     }
-
+    
     private var productNotice: some View {
         Text("""
             *컬러 드리즐은 시간이 지날수록 번지는 현상이 있으나
             음료 품질과는 무관하니 안심하고 드세요.
             """)
-            .font(.Regular(14))
-            .foregroundStyle(.gray400)
-            .fixedSize(horizontal: false, vertical: true)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, 14)
-            .padding(.vertical, 21)
-            .background(.gray100)
+        .font(.Regular(14))
+        .foregroundStyle(.gray400)
+        .fixedSize(horizontal: false, vertical: true)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, 14)
+        .padding(.vertical, 21)
+        .background(.gray100)
     }
-
+    
 }
