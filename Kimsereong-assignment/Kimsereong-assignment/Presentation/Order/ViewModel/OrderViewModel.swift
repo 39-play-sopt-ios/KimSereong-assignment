@@ -17,6 +17,10 @@ final class OrderViewModel {
     var favoriteMenus: [NewMenuItemModel] {
         menus.filter { menu in favoriteIDs.contains(menu.id) }
     }
+    func menu(id: String) -> NewMenuItemModel? {
+        menus.first { $0.id == id }
+    }
+
     func isFavorite(id: String) -> Bool {
         favoriteIDs.contains(id)
     }

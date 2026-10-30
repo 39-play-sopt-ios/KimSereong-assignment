@@ -13,17 +13,13 @@ struct NewMenuList: View {
     
     var body: some View {
         List(items) { item in
-            Group {
-                if item.id == "sweet-potato-latte-iced" {
-                    Button {
-                        path.append(.detailMenu(menuID: item.id))
-                    } label: {
-                        MenuItemRow(item: item)
-                    }
-                } else {
-                    MenuItemRow(item: item)
-                }
+            Button {
+                path.append(.detailMenu(menuID: item.id))
+            } label: {
+                MenuItemRow(item: item)
+                    .contentShape(Rectangle())
             }
+            .buttonStyle(.plain)
             .listRowSeparator(.hidden)
             .listRowInsets(
                 EdgeInsets(

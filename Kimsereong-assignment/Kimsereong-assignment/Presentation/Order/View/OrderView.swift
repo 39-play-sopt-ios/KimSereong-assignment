@@ -35,8 +35,10 @@ struct OrderView: View {
                 switch route {
                 case .newMenu:
                     NewMenuView(path: $path)
-                case .detailMenu:
-                    DetailMenuView()
+                case .detailMenu(let menuID):
+                    if let item = viewModel.menu(id: menuID) {
+                        DetailMenuView(item: item)
+                    }
                 }
             }
         }

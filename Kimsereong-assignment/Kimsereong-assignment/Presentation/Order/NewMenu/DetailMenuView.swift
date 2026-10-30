@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct DetailMenuView: View {
+    let item: NewMenuItemModel
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         ZStack(alignment: .top) {
-            DetailMenuContent()
+            DetailMenuContent(item: item)
             
             .ignoresSafeArea(edges: .top)
             
