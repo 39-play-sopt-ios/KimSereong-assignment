@@ -41,14 +41,14 @@ struct NewMenuRow: View {
 
 struct NewMenuList: View {
     let items: [NewMenuItemModel]
-    @State private var showsDetailMenu = false
+    @Binding var path: [OrderRoute]
     
     var body: some View {
         List(items) { item in
             Group {
                 if item.id == "sweet-potato-latte-iced" {
                     Button {
-                        showsDetailMenu = true
+                        path.append(.detailMenu(menuID: item.id))
                     } label: {
                         NewMenuRow(item: item)
                     }
@@ -68,8 +68,5 @@ struct NewMenuList: View {
         .contentMargins(.top, 28, for: .scrollContent)
         .scrollContentBackground(.hidden)
         .background(.white)
-        .navigationDestination(isPresented: $showsDetailMenu) {
-            DetailMenuView()
-        }
     }
 }

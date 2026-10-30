@@ -9,9 +9,10 @@ import SwiftUI
 
 struct OrderView: View {
     @State private var selectedTab: OrderMenuTab = .all
+    @Binding var path: [OrderRoute]
     
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $path){
             VStack(alignment: .center, spacing: 0) {
                 TopNavigationBar(type: .searchOnly)
                 
@@ -22,17 +23,21 @@ struct OrderView: View {
                 switch selectedTab {
                             case .all:
                                 DetailMenuTabBar()
-                                MainMenuList(items: MenuCategoryModel.menus)
+                                MainMenuList(items: MenuCategoryModel.menus, path: $path)
                             case .my:
                                 MyMenuView()
                             }
                 
                 Spacer()
             }
+            .navigationDestination(for: OrderRoute.self) { route in
+                switch route {
+                case .newMenu:
+                    NewMenuView(path: $path)
+                case .detailMenu:
+                    DetailMenuView()
+                }
+            }
         }
     }
-}
-
-#Preview {
-    OrderView()
 }

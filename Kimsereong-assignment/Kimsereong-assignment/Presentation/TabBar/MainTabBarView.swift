@@ -41,8 +41,14 @@ enum MainTab: CaseIterable {
     }
 }
 
+enum OrderRoute: Hashable {
+    case newMenu
+    case detailMenu(menuID: String)
+}
+
 struct MainTabBarView: View {
     @State private var selectedTab: MainTab = .order
+    @State private var orderPath: [OrderRoute] = []
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -54,7 +60,7 @@ struct MainTabBarView: View {
                 .toolbar(.hidden, for: .tabBar)
                 .tag(MainTab.pay)
             
-            OrderView()
+            OrderView(path: $orderPath)
                 .toolbar(.hidden, for: .tabBar)
                 .tag(MainTab.order)
             
@@ -67,14 +73,30 @@ struct MainTabBarView: View {
                 .tag(MainTab.other)
         }
         .safeAreaInset(edge: .bottom, spacing: 0) {
-            VStack(spacing: 0) {
-                if selectedTab == .order {
-                    LocationTabBar()
-                }
+            if selectedTab == .order && isDetailView {
+                OrderTabBar()
+            } else {
+                VStack(spacing: 0) {
+                    if selectedTab == .order {
+                        LocationTabBar()
+                    }
 
-                CustomTabBar(selectedTab: $selectedTab)
+                    CustomTabBar(selectedTab: $selectedTab)
+                }
             }
         }
+    }
+    
+    private var isDetailView: Bool {
+        guard let lastRoute = orderPath.last else {
+            return false
+        }
+        
+        if case .detailMenu = lastRoute {
+            return true
+        }
+        
+        return false
     }
 }
 

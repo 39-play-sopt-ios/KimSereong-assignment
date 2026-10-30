@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NewMenuView: View {
     @Environment(\.dismiss) private var dismiss
+    @Binding var path: [OrderRoute]
 
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -18,7 +19,7 @@ struct NewMenuView: View {
             
             PageTitle(title: "NEW")
             
-            NewMenuList(items: NewMenuItemModel.newMenus)
+            NewMenuList(items: NewMenuItemModel.newMenus, path: $path)
 
             Spacer()
         }

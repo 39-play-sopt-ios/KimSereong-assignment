@@ -28,14 +28,14 @@ struct MenuCategoryRow: View {
 
 struct MainMenuList: View {
     let items: [MenuCategoryModel]
-    @State private var showsNewMenu = false
+    @Binding var path: [OrderRoute]
     
     var body: some View {
         List(items) { item in
             Group {
                 if item.id == "new" {
                     Button {
-                        showsNewMenu = true
+                        path.append(.newMenu)
                     } label: {
                         MenuCategoryRow(item: item)
                     }
@@ -56,8 +56,5 @@ struct MainMenuList: View {
         .listRowSpacing(21)
         .scrollContentBackground(.hidden)
         .background(.white)
-        .navigationDestination(isPresented: $showsNewMenu) {
-            NewMenuView()
-        }
     }
 }
