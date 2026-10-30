@@ -17,6 +17,8 @@ struct NewMenuView: View {
             }
             
             PageTitle(title: "NEW")
+            
+            NewMenuList(items: NewMenuItemModel.newMenus)
 
             Spacer()
         }

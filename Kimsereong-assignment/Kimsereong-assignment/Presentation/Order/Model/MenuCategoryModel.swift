@@ -14,7 +14,7 @@ struct MenuCategoryModel: Identifiable {
 }
 
 extension MenuCategoryModel {
-    static let menus : [MenuCategoryModel] = [
+    static let menus: [MenuCategoryModel] = [
         MenuCategoryModel(id: "new", title: "NEW", image: .new),
         MenuCategoryModel(id: "recommended", title: "추천", image: .recommend),
         MenuCategoryModel(id: "coldbrew", title: "콜드 브루", image: .coldbrew),
