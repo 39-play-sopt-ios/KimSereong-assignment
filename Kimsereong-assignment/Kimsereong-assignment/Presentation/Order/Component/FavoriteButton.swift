@@ -19,8 +19,4 @@ struct FavoriteButton: View {
                 .frame(width: 25, height: 22)
         }
         .buttonStyle(.plain)
-        .accessibilityLabel(
-            isFavorite ? "나만의 메뉴에서 제거" : "나만의 메뉴에 추가"
-        )
-    }
 }
