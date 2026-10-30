@@ -49,6 +49,7 @@ enum OrderRoute: Hashable {
 struct MainTabBarView: View {
     @State private var selectedTab: MainTab = .order
     @State private var orderPath: [OrderRoute] = []
+    @State private var viewModel = OrderViewModel()
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -60,7 +61,7 @@ struct MainTabBarView: View {
                 .toolbar(.hidden, for: .tabBar)
                 .tag(MainTab.pay)
             
-            OrderView(path: $orderPath)
+            OrderView(path: $orderPath, viewModel: viewModel)
                 .toolbar(.hidden, for: .tabBar)
                 .tag(MainTab.order)
             
@@ -73,14 +74,20 @@ struct MainTabBarView: View {
                 .tag(MainTab.other)
         }
         .safeAreaInset(edge: .bottom, spacing: 0) {
-            if selectedTab == .order && isDetailView {
-                OrderTabBar()
+            if selectedTab == .order,
+               case let .detailMenu(menuID)? = orderPath.last {
+                OrderTabBar(
+                    isFavorite: viewModel.isFavorite(id: menuID),
+                    onFavoriteTapped: {
+                        viewModel.toggleFavorite(id: menuID)
+                    }
+                )
             } else {
                 VStack(spacing: 0) {
                     if selectedTab == .order {
                         LocationTabBar()
                     }
-
+                    
                     CustomTabBar(selectedTab: $selectedTab)
                 }
             }
@@ -120,8 +127,8 @@ struct CustomTabBar: View {
                         Text(tab.title)
                             .font(.Medium(12))
                             .foregroundStyle(
-                                    selectedTab == tab ? Color("starbucks_green") : Color.gray250
-                                )
+                                selectedTab == tab ? Color("starbucks_green") : Color.gray250
+                            )
                     }
                     .frame(maxWidth: .infinity)
                     .frame(height: 48)

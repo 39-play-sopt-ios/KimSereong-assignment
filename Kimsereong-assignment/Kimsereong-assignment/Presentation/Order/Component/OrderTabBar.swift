@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct OrderTabBar: View {
+    let isFavorite: Bool
+    let onFavoriteTapped: () -> Void
+    
     var body: some View {
         HStack(alignment: .center, spacing: 0) {
-            Image(.heartEmpty)
-                .padding(.trailing, 20)
+            FavoriteButton(
+                isFavorite: isFavorite,
+                onTap: onFavoriteTapped
+            )
+            .padding(.trailing, 20)
             
             OrderButton(title: "주문하기")
-                
+            
         }
         .padding(.top, 14)
         .padding(.leading, 21)
