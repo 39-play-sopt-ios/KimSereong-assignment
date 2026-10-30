@@ -9,14 +9,16 @@ import SwiftUI
 
 struct DetailMenuView: View {
     @Environment(\.dismiss) private var dismiss
-
+    
     var body: some View {
-        VStack(alignment: .center, spacing: 0) {
-            DetailTopNavigationBar() {
+        ZStack(alignment: .top) {
+            DetailMenuContent()
+            
+            .ignoresSafeArea(edges: .top)
+            
+            DetailTopNavigationBar {
                 dismiss()
             }
-            
-            Spacer()
         }
         .navigationBarBackButtonHidden(true)
         .toolbar(.hidden, for: .navigationBar)
