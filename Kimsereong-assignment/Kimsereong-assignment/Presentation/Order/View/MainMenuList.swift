@@ -28,10 +28,21 @@ struct MenuCategoryRow: View {
 
 struct MainMenuList: View {
     let items: [MenuCategoryModel]
+    @State private var showsNewMenu = false
     
     var body: some View {
         List(items) { item in
-            MenuCategoryRow(item: item)
+            Group {
+                if item.id == "new" {
+                    Button {
+                        showsNewMenu = true
+                    } label: {
+                        MenuCategoryRow(item: item)
+                    }
+                } else {
+                    MenuCategoryRow(item: item)
+                }
+            }
                 .listRowSeparator(.hidden)
                 .listRowInsets(
                     EdgeInsets(
@@ -45,5 +56,8 @@ struct MainMenuList: View {
         .listRowSpacing(21)
         .scrollContentBackground(.hidden)
         .background(.white)
+        .navigationDestination(isPresented: $showsNewMenu) {
+            NewMenuView()
+        }
     }
 }

@@ -35,6 +35,9 @@ struct LocationTabBar: View {
             Spacer(minLength: 100)
             
             Image(.chevronBottomWhite)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 21, height: 21)
         }
         .padding(.bottom, 4)
         .overlay(alignment: .bottom) {
